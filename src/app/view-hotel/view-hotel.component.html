@@ -1,0 +1,21 @@
+<h1 class="text-center mt-4 fw-bold"><i class="fa-solid fa-infinity fa-fade text-primary fa-lg"></i> Room Details</h1>
+<div class="container mt-4 border rounded p-4 mb-5 shadow p-3 mb-5 bg-white rounded">
+    <div class="row">
+        <div class="col-lg-5 mb-5">
+            <img width="100%" [src]="rooms.photo" alt="img">
+        </div>
+        <div class="col-lg-7 text-center mt-2">
+            <h2>Room No : {{rooms.id}}</h2>
+            <h4>Place : {{rooms.area}}</h4>
+            <h4>Country : {{rooms.country}}</h4>
+            <h4>Room Type : {{rooms.roomtype}}</h4>
+            <h4>BHK Type : {{rooms.bhk}}</h4>
+            <h2>Amount</h2>
+            <h2 class="text-success fw-bolder mb-5">Rs : {{rooms.amount}}</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container d-flex justify-content-end">
+    <button routerLink="" class="btn btn-primary mb-4"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</div>

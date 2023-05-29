@@ -1,0 +1,79 @@
+.heading {
+    text-align: center;
+    padding: 25px 25px 0px 25px;
+}
+
+.heading h1 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.heading p {
+    text-align: justify;
+    font-size: 16px;
+    /* padding: 0 40px; */
+}
+
+.heading p span {
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: 500;
+}
+
+.btnn1,
+.btnn2,
+.btnn3 {
+    width: 40px;
+    height: 40px;
+    min-width: unset;
+}
+
+.btnn1 {
+    background-color: rgb(76, 76, 211);
+    color: #fff;
+}
+
+.btnn2 {
+    background-color: green;
+    color: #fff;
+}
+
+.btnn3 {
+    background-color: rgb(218, 65, 65);
+    color: #fff;
+}
+
+.btnn mat-icon {
+    font-size: 22px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.roombtn {
+    /* background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(29,165,253,1) 100%, rgba(252,176,69,1) 100%); */
+    background: linear-gradient(90deg, rgba(58, 134, 180, 1) 100%, rgba(29, 165, 253, 1) 100%, rgba(252, 176, 69, 1) 100%);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 100px;
+    background-color: #4C43CD;
+    box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 14px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+img {
+    border-radius: 5%;
+}
+
+.errr {
+    margin: 154px;
+    text-align: center;
+}

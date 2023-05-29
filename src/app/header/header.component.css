@@ -1,0 +1,31 @@
+.flex-container{
+    width: 100%;
+}
+
+.flex-container ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+mat-icon{
+    vertical-align: middle;
+}
+
+.lisssst{
+    text-align: center;
+}
+
+mat-toolbar{
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+

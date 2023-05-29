@@ -1,0 +1,88 @@
+<!-- heading -->
+<div class="heading">
+    <h1 style="font-family: 'Poppins', sans-serif;" class="mb-3">All Room Report</h1>
+    <p><span>Hotel Managment System</span> : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam repudiandae
+        sequi facere sit ratione optio aperiam nostrum, doloribus debitis quia blanditiis nam, provident cumque! At cum
+        illo tenetur laudantium facilis? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum veniam,
+        facilis aperiam exercitationem possimus quos magni quam adipisci eligendi ipsum obcaecati eum repellat aliquid
+        sint.</p>
+    <a routerLink="add-hotel" class="roombtn mb-3 mt-3" mat-raised-button color="primary"><i
+            class="fa-solid fa-plus fa-flip me-2"></i> Add Rooms</a>
+</div>
+
+
+<!-- searchbar -->
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <h4 class="text-center">Search by Places</h4>
+            <input [(ngModel)]="searchKey" type="text" class="form-control" placeholder="Search">
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+
+<!-- Loading spinner -->
+<div *ngIf="isLoading && allRooms.length==0" class="text-center">
+    <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<!-- if no place matching -->
+<div *ngIf="(allRooms | filter : searchKey : 'area').length==0 && !isLoading">
+    <!-- <h3>No Rooms Found</h3> -->
+    <div class="alert alert-danger text-center m-5" role="alert">
+        <i class="fa-solid fa-triangle-exclamation fa-fade"></i> No Rooms Found !
+      </div>
+</div>
+
+<!-- Error msg -->
+<div *ngIf="errMsg" class="errr alert alert-danger" role="alert">
+    {{errMsg}}
+</div>
+
+<!-- cards -->
+<div class="container mt-5">
+    <div *ngIf="!isLoading && allRooms.length>0" class="row">
+        <div class="col-lg-6 mb-4" *ngFor="let rooms of allRooms | filter : searchKey :'area' ">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-5 text-center mb-2">
+                            <!-- image -->
+                            <img width="220px" height="150px" [src]="rooms.photo" alt="user img">
+                        </div>
+                        <div class="col-sm-7">
+                            <!-- content -->
+                            <ul>
+                                <li class="list-group-item mb-2 mt-2"><span class="fw-bold">Place</span> : {{rooms.area}}</li>
+                                <mat-divider></mat-divider>
+                                <li class="list-group-item mb-2 mt-2"><span class="fw-bold">BHK Type</span> : {{rooms.bhk}}</li>
+                                <mat-divider></mat-divider>
+                                <li class="list-group-item mt-2 mb-2"><span class="fw-bold">Room Type</span> : {{rooms.roomtype}}
+                                </li>
+                            </ul>
+                            <div class="d-flex flex-row justify-content-center align-items-center mt-2">
+                                <button routerLink="view-hotel/{{rooms.id}}" class="btnn1 me-2" mat-fab color="primary"
+                                    aria-label="Example icon button with a delete icon">
+                                    <mat-icon>visibility</mat-icon>
+                                </button>
+                                <button routerLink="edit-hotel/{{rooms.id}}" class="btnn2 me-2" mat-fab color="primary"
+                                    aria-label="Example icon button with a delete icon">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button (click)="deleteRoom(rooms.id)" class="btnn3 me-2" mat-fab color="primary"
+                                    aria-label="Example icon button with a delete icon">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

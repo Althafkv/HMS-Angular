@@ -1,0 +1,100 @@
+<div class="heading mt-4">
+    <h1 class="mb-4"><i class="fa-solid fa-plus fa-beat-fade text-primary"></i> Add Rooms</h1>
+    
+</div>
+
+<div class="container mt-5 mb-4">
+    <div class="row border rounded p-5 mb-5">
+        <!-- form -->
+        <div class="col-lg-8">
+            <form #addRoomsForm="ngForm">
+
+                <!-- roomno / id -->
+                <div class="mb-2">
+                    <input name="id" #id="ngModel" [(ngModel)]="room.id" type="text" placeholder="Room No" autocomplete="off" class="form-control" required>
+                </div>
+                <!-- id validation -->
+                <div *ngIf="id.invalid && id.touched" class="mb-2 text-danger">
+                    Please enter a valid Room No
+                </div>
+
+                <!-- country -->
+                <div class="mb-2">
+                    <input name="country" #country="ngModel" [(ngModel)]="room.country" type="text" placeholder="Country" autocomplete="off" class="form-control" pattern="[a-zA-Z ]*" required>
+                </div>
+                <!-- country validation -->
+                <div *ngIf="country.invalid && country.touched" class="mb-2 text-danger">
+                    Please enter a valid Country
+                </div>
+
+                <!-- area -->
+                <div class="mb-2">
+                    <input name="area" #area="ngModel" [(ngModel)]="room.area" type="text" placeholder="Area" autocomplete="off" class="form-control" pattern="[a-zA-Z ]*" required>
+                </div>
+                <!-- area validation -->
+                <div *ngIf="area.invalid && area.touched" class="mb-2 text-danger">
+                    Please enter a valid Area
+                </div>
+
+                <!-- roomtype -->
+                <div class="mb-2">
+                    <input name="roomtype" #roomtype="ngModel" [(ngModel)]="room.roomtype" type="text" placeholder="Room Type ( AC / NON-AC )" autocomplete="off" class="form-control" required>
+                </div>
+                <!-- roomtype validation -->
+                <div *ngIf="roomtype.invalid && roomtype.touched" class="mb-2 text-danger">
+                    Please enter a valid RoomType
+                </div>
+
+                <!-- bhk type -->
+                <div class="mb-2">
+                    <input name="bhk" #bhk="ngModel" [(ngModel)]="room.bhk" type="text" placeholder="BHK Type" class="form-control" autocomplete="off" required>
+                </div>
+                <!-- bhk validation -->
+                <div *ngIf="bhk.invalid && bhk.touched" class="mb-2 text-danger">
+                    Please enter a valid BHK Type
+                </div>
+
+                <!-- image URL -->
+                <div class="mb-2">
+                    <input name="photo" #photo="ngModel" [(ngModel)]="room.photo" type="text" placeholder="Image URL" class="form-control" autocomplete="off" required>
+                </div>
+                <!-- photo validation -->
+                <div *ngIf="photo.invalid && photo.touched" class="mb-2 text-danger">
+                    Please enter a valid URL
+                </div>
+
+                <!-- amount -->
+                <div class="mb-2">
+                    <input name="amount" #amount="ngModel" [(ngModel)]="room.amount" type="text" placeholder="Amount" class="form-control" autocomplete="off" pattern="[0-9]*" required>
+                </div>
+                <!-- amount validation -->
+                <div *ngIf="amount.invalid && amount.touched" class="mb-2 text-danger">
+                    Please enter a valid Amount
+                </div>
+                
+
+                <!-- button -->
+                <div class="row mt-4">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <button routerLink="" class="btn btn-warning"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <button (click)="addRoom(room)" [disabled]="addRoomsForm.invalid" class="btn btn-success ms-2"><i class="fa-solid fa-plus"></i> Add</button>
+                    </div>
+                    <div class="col-md-4">
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- img -->
+        <div class="col-lg-4 mt-3">
+            <div [hidden]="addRoomsForm.invalid">
+                <img width="100%" [src]="room.photo" alt="img">
+                <h2 class="text-center mt-3 ">Room No : {{room.id}}</h2>
+                <h3 class="text-center">Amount : {{room.amount}}</h3>
+            </div>
+
+        </div>
+    </div>
+</div>

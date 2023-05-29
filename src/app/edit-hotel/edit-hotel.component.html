@@ -1,0 +1,100 @@
+<div class="heading">
+    <h1 class="mb-4">Edit and Update Rooms</h1>
+    <p class="text-center"><span>Edit and Update Rooms</span> : Edit your Rooms with Image, Place, Room Number, Room Type etc.. and Update your Amount.</p>
+</div>
+
+<div class="container mt-5 mb-4">
+    <div class="row border rounded p-5">
+        <!-- form -->
+        <div class="col-lg-8">
+            <form #editRoomsForm="ngForm">
+
+                <!-- roomno / id -->
+                <div class="mb-2">
+                    <input name="id" #id="ngModel" [(ngModel)]="room.id" type="text" placeholder="Room No" autocomplete="off" class="form-control" required>
+                </div>
+                <!-- id validation -->
+                <div *ngIf="id.invalid && id.touched" class="mb-2 text-danger">
+                    Please enter a valid Room No
+                </div>
+
+                <!-- country -->
+                <div class="mb-2">
+                    <input name="country" #country="ngModel" [(ngModel)]="room.country" type="text" placeholder="Country" autocomplete="off" class="form-control" pattern="[a-zA-Z ]*" required>
+                </div>
+                <!-- country validation -->
+                <div *ngIf="country.invalid && country.touched" class="mb-2 text-danger">
+                    Please enter a valid Country
+                </div>
+
+                <!-- area -->
+                <div class="mb-2">
+                    <input name="area" #area="ngModel" [(ngModel)]="room.area" type="text" placeholder="Area" autocomplete="off" class="form-control" pattern="[a-zA-Z ]*" required>
+                </div>
+                <!-- area validation -->
+                <div *ngIf="area.invalid && area.touched" class="mb-2 text-danger">
+                    Please enter a valid Area
+                </div>
+
+                <!-- roomtype -->
+                <div class="mb-2">
+                    <input name="roomtype" #roomtype="ngModel" [(ngModel)]="room.roomtype" type="text" placeholder="Room Type ( AC / NON-AC )" autocomplete="off" class="form-control" required>
+                </div>
+                <!-- roomtype validation -->
+                <div *ngIf="roomtype.invalid && roomtype.touched" class="mb-2 text-danger">
+                    Please enter a valid RoomType
+                </div>
+
+                <!-- bhk type -->
+                <div class="mb-2">
+                    <input name="bhk" #bhk="ngModel" [(ngModel)]="room.bhk" type="text" placeholder="BHK Type" autocomplete="off" class="form-control" required>
+                </div>
+                <!-- bhk validation -->
+                <div *ngIf="bhk.invalid && bhk.touched" class="mb-2 text-danger">
+                    Please enter a valid BHK Type
+                </div>
+
+                <!-- image URL -->
+                <div class="mb-2">
+                    <input name="photo" #photo="ngModel" [(ngModel)]="room.photo" type="text" placeholder="Image URL" autocomplete="off" class="form-control" required>
+                </div>
+                <!-- photo validation -->
+                <div *ngIf="photo.invalid && photo.touched" class="mb-2 text-danger">
+                    Please enter a valid URL
+                </div>
+
+                <!-- amount -->
+                <div class="mb-2">
+                    <input name="amount" #amount="ngModel" [(ngModel)]="room.amount" type="text" placeholder="Amount" autocomplete="off" class="form-control" pattern="[0-9]*" required>
+                </div>
+                <!-- amount validation -->
+                <div *ngIf="amount.invalid && amount.touched" class="mb-2 text-danger">
+                    Please enter a valid Amount
+                </div>
+                
+
+                <!-- button -->
+                <div class="row mt-4">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <button routerLink="" class="btn btn-warning"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                        <button (click)="editRoom(room.id)" [disabled]="editRoomsForm.invalid" class="btn btn-success ms-2"><i class="fa-solid fa-pen fa-sm me-1"></i> Update</button>
+                    </div>
+                    <div class="col-md-4">
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- img -->
+        <div class="col-lg-4 mt-3">
+            <div [hidden]="editRoomsForm.invalid">
+                <img width="100%" [src]="room.photo" alt="img">
+                <h2 class="text-center mt-3 ">Room No : {{room.id}}</h2>
+                <h3 class="text-center">Amount : {{room.amount}}</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
